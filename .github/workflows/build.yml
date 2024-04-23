@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+        # CREATE A FILE
+      - name: simulate a build
+        run: echo "hello" > output.txt
+        
+        # PUBLISH ARTIFACT
+      - name: upload artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: 'your-artifact'
+          path: 'output.txt'
