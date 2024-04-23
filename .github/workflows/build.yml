@@ -10,20 +10,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Simulate a Build
+      - name: SIMULATE BUILD
         run: echo 'hello youtube' > output.txt
         
-      - name: Upload a Build Artifact
+      - name: UPLOAD A B.ARTIFACT
         uses: actions/upload-artifact@v2.2.4
         with:          
           name: 'your-artifact-name'
           path: 'output.txt'
           
-      - name: Create an issue
+      - name: CREATE AN ISSUE
         uses: JasonEtco/create-an-issue@v2.6.0
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           ENVIRONMENT: Dev
-        #   RUNNUMBER: ${{ github.run_number  }}
+          RUNNUMBER: ${{ github.run_number  }}
         with:         
           filename: .github/deployment-approval.md
